@@ -1,0 +1,13 @@
+.news-item {
+    width: 600px;
+    padding: 10px;
+    border: 1px solid;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.news-img {
+    width: 400px;
+    margin: auto;
+    display: block;
+}

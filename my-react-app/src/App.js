@@ -1,7 +1,19 @@
 import { useState } from 'react'
 import Header from './components/Header';
-import Articles from './components/Articles';
+//import Articles from './components/Articles';
+import NewsList from './components/NewsList';
 //import './App.css';
+/*
+function getNews() {
+  fetch('https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/top-headlines?country=us&apikey=5ef0393bf9dd4571a0be26e65e10b9a2', {headers: new Headers({"X-Requested-With":"Pravda"})})
+  .then(a => a.json())
+  .then(response => {
+    for(var i=0; i < response.articles.length; i++) {
+      document.getElementById("output").innerHTML +=
+      "<div style='padding-top: 20px;'><img style='float:left; width: 150px;' src='"+response.articles[i].urlToImage+"'><h1>"+response.articles[i].title+"</h1>"+response.articles[i].source.name+"<br>"+response.articles[i].description+" <a href='"+response.articles[i].url+"' target='_blank'>"+response.articles[i].url+"</a></div>";
+    }
+  })
+}
 
 const App = () => {
   const [domesticNews, setArticles] = useState([
@@ -49,11 +61,27 @@ const [foreignNews] = useState([
       <Header />
       <div className="container-child">
         <h2>Domestic News</h2>
-        <Articles articles={domesticNews}/>
+        <NewsList />
       </div>
       <div className="container-child">
         <h2>Foreign News</h2>
         <Articles articles={foreignNews}/>
+      </div>
+    </div>
+  );
+}
+*/
+function App() {
+  return (
+    <div className="container">
+      <Header />
+      <div className="container-child" style={{backgroundColor: '#fff0f0'}}>
+        <h2>Domestic News</h2>
+        <NewsList />
+      </div>
+      <div className="container-child">
+        <h2>Foreign News</h2>
+
       </div>
     </div>
   );
