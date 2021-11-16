@@ -6,11 +6,11 @@
 import math
 import random
 #20 News Sources
-ns = [["Huffington Post", "Buzzfeed News"]
-        ,["CNN", "The Guardian", "Politico", "NBC News", "CBS News", "The New York Times"]
-        ,["Reuters", "Associated Press", "The Economist", "The Atlantic", "npr", "pbs", "c-span"]
-        ,["Fox News", "The Hill", "The Washington Post", "Business Insider", "The Wall Street Journal"]
-        ,["New York Post"]]
+ns = [["huffpost.com", "buzzfeednews.com"]
+        ,["cnn.com", "theguardian.com", "politico.com", "nbcnews.com", "cbsnews.com", "nytimes.com"]
+        ,["reuters.com", "apnews.com", "economist.com", "theatlantic.com", "npr.org", "pbs.org", "c-span.org"]
+        ,["foxnews.com", "thehill.com", "washingtonpost.com", "businessinsider.com", "wsj.com"]
+        ,["nypost.com", "theepochtimes.com"]]
 #METHODOLOGY
 '''
 ways to suggest user content?
@@ -38,11 +38,11 @@ def drawing(userbias):
         #print("User is Biased heavily")
         heavyl = True
         realadjscores = [2,4]
-        print(realadjscores)
+        #print(realadjscores)
     elif(userbias-4 < 1):
         heavyr = True
         realadjscores = [2,4]
-        print(realadjscores)
+        #print(realadjscores)
     #2 favored articles, 4 l bias, 4 r bias
     overallrec = []
     brec = []
@@ -65,7 +65,7 @@ def printtofile(overallrec):
     with open("api-generations.txt", "w+") as f:
         for x in overallrec:
             for y in x:
-                towr = "https://newsapi.org/v2/everything?sources="+y+"&language=en&pageSize=1&apiKey=5ef0393bf9dd4571a0be26e65e10b9a2\n"
+                towr = "https://newsapi.org/v2/everything?domains="+y+"&language=en&pageSize=1&apiKey=5ef0393bf9dd4571a0be26e65e10b9a2\n"
                 f.write(towr)
                 #print(towr)
 def ranking(bias_adj_score):
