@@ -43,18 +43,35 @@ def drawing(userbias):
         heavyr = True
         realadjscores = [2,4]
         print(realadjscores)
-    #6 favored articles, 7 l bias, 7 r bias
+    #2 favored articles, 4 l bias, 4 r bias
     overallrec = []
     brec = []
-    for i in range(0,5):
+    for i in range(0,2):
         brec.append(random.choice(ns[adjbiasscore-1]))
+    lrec = []
     overallrec.append(brec)
-    print(overallrec)
-    print(adjbiasscore)    
+    for i in range(0,4):
+        lrec.append(random.choice(ns[(round(realadjscores[0]))-1]))
+    overallrec.append(lrec)
+    rrec = []
+    for i in range(0,4):
+        rrec.append(random.choice(ns[(round(realadjscores[1])-1)]))
+    overallrec.append(rrec)
+    #print(overallrec)
+    return(overallrec)
+    #print(adjbiasscore)    
     return 0
+def printtofile(overallrec):
+    with open("api-generations.txt", "w+") as f:
+        for x in overallrec:
+            for y in x:
+                towr = "https://newsapi.org/v2/everything?sources="+y+"&language=en&pageSize=1&apiKey=5ef0393bf9dd4571a0be26e65e10b9a2\n"
+                f.write(towr)
+                #print(towr)
 def ranking(bias_adj_score):
     return 0
 def topics(rankmat):
     return 0
     
-drawing(4.512)
+x = drawing(3.512)
+printtofile(x)
