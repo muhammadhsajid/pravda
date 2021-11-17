@@ -2,7 +2,7 @@ import React from "react";
 
 //import { useState } from 'react'
 import GlobalNewsList from './GlobalNewsList';
-// import Header from './Header';
+import Header from './Header';
 //import Articles from './components/Articles';
 import HomeNewsList from './HomeNewsList';
 //import './App.css';
@@ -10,7 +10,7 @@ import HomeNewsList from './HomeNewsList';
 function Home() {
   return (
     <div className="container">
-
+      <Header />
       <div className="featured-article">
         <h2>Featured Article</h2>
       </div>

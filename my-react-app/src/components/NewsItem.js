@@ -1,5 +1,5 @@
 import React from 'react'
-import './newsItem.css'
+import '../custom.css'
 
 const NewsItem = ({ title, description, url, urlToImage }) => {
     return (

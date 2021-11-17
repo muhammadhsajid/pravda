@@ -4,15 +4,16 @@ import { withRouter } from 'react-router-dom';
 
 function Navigation(props) {
   return (
-    <div className="navigation">
-      <nav class="navbar navbar-expand navbar-dark bg-dark">
-        <div class="container">
+    <div>
+      <nav>
+        <div>
+          {/*}
           <Link class="navbar-brand" to="/">
             Pravda
           </Link>
-
+          */}
           <div>
-            <ul class="navbar-nav ml-auto">
+            <ul>
               <li
                 class={`nav-item  ${
                   props.location.pathname === "/" ? "active" : ""
@@ -20,7 +21,16 @@ function Navigation(props) {
               >
                 <Link class="nav-link" to="/">
                   Home
-                  <span class="sr-only">(current)</span>
+                </Link>
+              </li>
+
+              <li
+                class={`nav-item  ${
+                  props.location.pathname === "/profile" ? "active" : ""
+                }`}
+              >
+                <Link class="nav-link" to="/profile">
+                  Log out
                 </Link>
               </li>
             </ul>
