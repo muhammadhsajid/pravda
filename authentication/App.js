@@ -29,7 +29,7 @@ function App() {
           <Route exact path="/" component={GoogleLogin} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/reset" component={Reset} />
-          <Route exact path="/home" component={Home} />
+          <Route exact path="/home" component= {Home} />
         </Switch>
       </Router>
     </div>

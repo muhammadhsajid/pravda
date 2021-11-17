@@ -12,7 +12,6 @@ const Login = () => {
   const [user, loading, error] = useAuthState(auth);
   const history = useHistory();
 	
-  /*
   useEffect(() => {
     if (loading) {
       // maybe trigger a loading screen
@@ -20,7 +19,6 @@ const Login = () => {
     }
     if (user) history.replace("/home");
   }, [user, loading]);
-  */
   
   return (
 	<div className ="login">

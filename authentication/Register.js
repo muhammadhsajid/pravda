@@ -3,6 +3,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useHistory } from "react-router-dom";
 import {
   auth,
+  sendVerificationEmail,
   registerWithEmailAndPassword,
 } from "./firebase";
 import "./Register.css";
@@ -15,7 +16,12 @@ function Register() {
   const register = () => {
     if (!name) alert("Please enter name");
     registerWithEmailAndPassword(name, email, password);
+	sendVerificationEmail(email, password);
   };
+  useEffect(() => {
+    if (loading) return;
+    if (user) history.replace("/home");
+  }, [user, loading]);
   return (
     <div className="register">
       <div className="register__container">

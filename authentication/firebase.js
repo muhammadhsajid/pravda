@@ -15,12 +15,26 @@ const firebaseConfig = {
 
 // Initialize Firebase 
 const app = firebase.initializeApp(firebaseConfig);
+const user = firebase.auth().currentUser;
 
 export const auth = firebase.auth();
 
 const provider = new firebase.auth.GoogleAuthProvider();
 provider.setCustomParameters({ prompt: 'select_account' });
 const db = app.firestore();
+
+
+const sendVerificationEmail = async (email, password) => {
+    // extracting the user from the firebase
+	const user = firebase.auth().currentUser;
+	const promise = auth.createUserWithEmailAndPassword(email, password);
+	promise.then(user => {
+		user.sendEmailVerification();
+		alert("Verification email sent.");
+	}).catch(error => console.log);
+	alert("FLAG");
+};
+
 
 const signInWithEmailAndPassword = async (email, password) => {
   try {
@@ -57,7 +71,9 @@ const sendPasswordResetEmail = async (email) => {
 
 export {
   db,
+  user,
   signInWithEmailAndPassword,
+  sendVerificationEmail,
   registerWithEmailAndPassword,
   sendPasswordResetEmail,
 };

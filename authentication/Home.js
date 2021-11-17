@@ -1,10 +1,19 @@
-import React from 'react';
-
-import { auth } from './firebase'
-
+import React, {useState, useEffect} from 'react';
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useHistory } from "react-router";
+import { auth } from './firebase';
 import './App.css';
 
-const Home = ({ user }) => {
+const Home = () => {
+	const [user, loading, error] = useAuthState(auth);
+	const [name, setName] = useState("");
+	const history = useHistory();
+	
+	useEffect(() => {
+		if (loading) return;
+		if (!user) return history.replace("/");
+	}, [user, loading]);
+	
   return (
     <div className="home">
       <h1>Hello</h1>
